@@ -2,7 +2,7 @@
 created by Nagaj at 21/05/2021
 """
 from turtle import Turtle
-from constants import CENTER, FONT, WHITE, SCORE_POSITION, SCORE_INFO
+from constants import CENTER, FONT, WHITE, SCORE_POSITION, SCORE_INFO, GAME_OVER, DEFAULT_POSITION
 
 
 class Score(Turtle):
@@ -17,9 +17,16 @@ class Score(Turtle):
         self.penup()
         self.hideturtle()
         self.goto(SCORE_POSITION)
-        self.write(self.score_info.format(self.result), align=CENTER, font=FONT)
+        self.update_scoreboard(text=self.score_info.format(self.result))
 
-    def update(self):
+    def increase_score(self):
         self.result += 1
         self.clear()
-        self.write(self.score_info.format(self.result), align=CENTER, font=FONT)
+        self.update_scoreboard(text=self.score_info.format(self.result))
+
+    def update_scoreboard(self, text):
+        self.write(text, align=CENTER, font=FONT)
+
+    def game_over(self):
+        self.goto(DEFAULT_POSITION)
+        self.update_scoreboard(text=GAME_OVER)

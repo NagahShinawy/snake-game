@@ -63,3 +63,12 @@ class Snake:
             self.head.heading() != Snake.RIGHT
         ):  # to prevent move versus current direction
             self.head.setheading(Snake.LEFT)  # to west
+
+    def is_collision_with_wall(self):
+        is_touch_wall = [
+            self.head.xcor() > 280,
+            self.head.xcor() < -280,
+            self.head.ycor() > 280,
+            self.head.ycor() < -280,
+        ]
+        return any(is_touch_wall)

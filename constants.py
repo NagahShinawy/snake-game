@@ -38,3 +38,6 @@ CENTER = "center"
 FONT = ("Arial", 13, "bold")
 SCORE_POSITION = 0, 280
 SCORE_INFO = "Score : {}"
+GAME_OVER = "GAME OVER"
+
+DEFAULT_POSITION = 0, 0
