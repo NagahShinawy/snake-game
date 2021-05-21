@@ -44,11 +44,7 @@ class Snake:
         self.add_segment(self.segments[-1].position())
 
     def is_collision_with_food(self, food: Food):
-        if self.head.distance(food) < COLLISION_DISTANCE:
-            self.extend()
-            food.refresh()
-            return True
-        return False
+        return self.head.distance(food) < COLLISION_DISTANCE
 
     def is_collision_with_wall(self):
         is_touch_wall = [
