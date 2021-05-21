@@ -30,3 +30,11 @@ DEFAULT_SIZE = 20
 COLLISION_DISTANCE = 15  # [seg1][seg2]    [    head    ]      []
 #                                                               food
 # distance measured from beginning of head  <- 20px   ->
+
+
+# #############  SCORE ###################
+
+CENTER = "center"
+FONT = ("Arial", 13, "bold")
+SCORE_POSITION = 0, 280
+SCORE_INFO = "Score : {}"

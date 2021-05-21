@@ -5,9 +5,10 @@ import time
 from config import screen_setup
 from snake import Snake
 from food import Food
+from scoreboard import Score
 from constants import UP, DOWN, RIGHT, LEFT
 
-game_isn_on = True
+is_game_on = True
 
 
 def main():
@@ -15,15 +16,17 @@ def main():
     screen.listen()
     snake = Snake()
     food = Food()
+    score = Score()
     screen.onkey(key=UP, fun=snake.to_up)
     screen.onkey(key=DOWN, fun=snake.to_down)
     screen.onkey(key=RIGHT, fun=snake.to_right)
     screen.onkey(key=LEFT, fun=snake.to_left)
-    while game_isn_on:
+    while is_game_on:
         screen.update()
         time.sleep(0.1)
         snake.move()
-        snake.is_collision_with_food(food=food)
+        if snake.is_collision_with_food(food=food):
+            score.update()
     screen.exitonclick()
 
 

@@ -39,9 +39,13 @@ class Snake:
     def is_collision_with_food(self, food: Food):
         if self.head.distance(food) < COLLISION_DISTANCE:
             food.move_to_random_point()
+            return True
+        return False
 
     def to_up(self):
-        if self.head.heading() != Snake.DOWN:  # to prevent move versus current direction
+        if (
+            self.head.heading() != Snake.DOWN
+        ):  # to prevent move versus current direction
             self.head.setheading(Snake.UP)  # to north
 
     def to_down(self):
@@ -49,9 +53,13 @@ class Snake:
             self.head.setheading(Snake.DOWN)  # to south
 
     def to_right(self):
-        if self.head.heading() != Snake.LEFT:  # to prevent move versus current direction
+        if (
+            self.head.heading() != Snake.LEFT
+        ):  # to prevent move versus current direction
             self.head.setheading(Snake.RIGHT)  # to east
 
     def to_left(self):
-        if self.head.heading() != Snake.RIGHT:  # to prevent move versus current direction
+        if (
+            self.head.heading() != Snake.RIGHT
+        ):  # to prevent move versus current direction
             self.head.setheading(Snake.LEFT)  # to west
