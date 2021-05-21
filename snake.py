@@ -2,8 +2,9 @@
 created by Nagaj at 20/05/2021
 """
 from turtle import Turtle
-from food import Food
+
 from constants import SQUARE, WHITE, NORTH, SOUTH, EAST, WEST, COLLISION_DISTANCE
+from food import Food
 
 
 class Snake:
@@ -23,11 +24,7 @@ class Snake:
 
     def create_snake(self):
         for position in Snake.POSITIONS:
-            segment = Turtle(shape=SQUARE)
-            segment.color(WHITE)
-            segment.penup()
-            segment.goto(x=position[0], y=position[1])
-            self.segments.append(segment)
+            self.add_segment(position)
 
     def move(self):
         for seg_number in range(len(self.segments) - 1, 0, -1):
@@ -36,8 +33,19 @@ class Snake:
             self.segments[seg_number].goto(x=new_x, y=new_y)
         self.head.forward(Snake.MOVE_DISTANCE)
 
+    def add_segment(self, position):
+        segment = Turtle(shape=SQUARE)
+        segment.color(WHITE)
+        segment.penup()
+        segment.goto(x=position[0], y=position[1])
+        self.segments.append(segment)
+
+    def extend(self):
+        self.add_segment(self.segments[-1].position())
+
     def is_collision_with_food(self, food: Food):
         if self.head.distance(food) < COLLISION_DISTANCE:
+            self.extend()
             food.move_to_random_point()
             return True
         return False
@@ -72,3 +80,11 @@ class Snake:
             self.head.ycor() < -280,
         ]
         return any(is_touch_wall)
+
+    def is_collision_with_tail(self):
+        for segment in self.segments[
+            1:
+        ]:  # slicing to avoid head to touch it self at first iteration, because first segment is the head
+            if self.head.distance(segment) < 10:
+                return True
+        return False

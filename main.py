@@ -38,6 +38,10 @@ def play():
         if snake.is_collision_with_wall():  # detect collision with wall
             score.game_over()
             is_game_on = False
+        if snake.is_collision_with_tail():
+            score.game_over()
+            is_game_on = False
+
     screen.exitonclick()
 
 
