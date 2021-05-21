@@ -18,3 +18,15 @@ UP = "Up"
 DOWN = "Down"
 RIGHT = "Right"
 LEFT = "Left"
+
+# ######## FOOD  ################
+
+CIRCLE = "circle"
+BLUE = "blue"
+STRETCH_LEN = STRETCH_WID = 0.5
+FASTEST = "fastest"
+DEFAULT_SIZE = 20
+
+COLLISION_DISTANCE = 15  # [seg1][seg2]    [    head    ]      []
+#                                                               food
+# distance measured from beginning of head  <- 20px   ->

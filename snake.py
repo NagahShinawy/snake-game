@@ -2,8 +2,8 @@
 created by Nagaj at 20/05/2021
 """
 from turtle import Turtle
-
-from constants import SQUARE, WHITE, NORTH, SOUTH, EAST, WEST
+from food import Food
+from constants import SQUARE, WHITE, NORTH, SOUTH, EAST, WEST, COLLISION_DISTANCE
 
 
 class Snake:
@@ -35,6 +35,10 @@ class Snake:
             new_y = self.segments[seg_number - 1].ycor()
             self.segments[seg_number].goto(x=new_x, y=new_y)
         self.head.forward(Snake.MOVE_DISTANCE)
+
+    def is_collision_with_food(self, food: Food):
+        if self.head.distance(food) < COLLISION_DISTANCE:
+            food.move_to_random_point()
 
     def to_up(self):
         if self.head.heading() != Snake.DOWN:  # to prevent move versus current direction
