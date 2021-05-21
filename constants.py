@@ -26,6 +26,29 @@ BLUE = "blue"
 STRETCH_LEN = STRETCH_WID = 0.5
 FASTEST = "fastest"
 DEFAULT_SIZE = 20
+COLORS = [
+    "red",
+    "green",
+    "blue",
+    "medium slate blue",
+    "purple",
+    "chartreuse",
+    "brown",
+    "deep pink",
+    "yellow",
+    "white",
+    "deep pink",
+    "medium violet red",
+    "green yellow",
+    "light sky blue",
+    "dark turquoise",
+    "pale violet red",
+    "rosy brown",
+    "cyan",
+    "dark orange",
+    "hot pink",
+    "magenta"
+]
 
 COLLISION_DISTANCE = 15  # [seg1][seg2]    [    head    ]      []
 #                                                               food

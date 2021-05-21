@@ -46,7 +46,7 @@ class Snake:
     def is_collision_with_food(self, food: Food):
         if self.head.distance(food) < COLLISION_DISTANCE:
             self.extend()
-            food.move_to_random_point()
+            food.refresh()
             return True
         return False
 

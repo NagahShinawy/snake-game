@@ -6,6 +6,7 @@ from turtle import Turtle
 
 from constants import (
     CIRCLE,
+    COLORS,
     BLUE,
     STRETCH_LEN,
     STRETCH_WID,
@@ -37,3 +38,7 @@ class Food(Turtle):
             (-HEIGHT // 2) + DEFAULT_SIZE, (HEIGHT // 2) - DEFAULT_SIZE
         )  # -280 to 280
         self.goto(random_x, random_y)
+
+    def refresh(self):
+        self.color(random.choice(COLORS))
+        self.move_to_random_point()
