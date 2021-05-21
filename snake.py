@@ -33,12 +33,15 @@ class Snake:
             self.segments[seg_number].goto(x=new_x, y=new_y)
         self.head.forward(Snake.MOVE_DISTANCE)
 
-    def add_segment(self, position):
+    def add_segment(self, position, color=WHITE):
         segment = Turtle(shape=SQUARE)
-        segment.color(WHITE)
+        segment.color(color)
         segment.penup()
         segment.goto(x=position[0], y=position[1])
         self.segments.append(segment)
+
+    def extend_and_refresh_color(self, color):
+        self.add_segment(self.segments[-1].position(), color)
 
     def extend(self):
         self.add_segment(self.segments[-1].position())

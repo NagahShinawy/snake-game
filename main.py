@@ -33,6 +33,7 @@ def play():
         time.sleep(0.1)
         snake.move()
         if snake.is_collision_with_food(food=food):  # detect collision with food
+            # snake.extend_and_refresh_color(food.fillcolor())
             snake.extend()
             food.refresh()
             score.increase_score()
