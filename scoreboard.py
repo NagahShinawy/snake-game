@@ -2,7 +2,15 @@
 created by Nagaj at 21/05/2021
 """
 from turtle import Turtle
-from constants import CENTER, FONT, WHITE, SCORE_POSITION, SCORE_INFO, GAME_OVER, DEFAULT_POSITION
+from constants import (
+    CENTER,
+    FONT,
+    WHITE,
+    SCORE_POSITION,
+    SCORE_INFO,
+    GAME_OVER,
+    DEFAULT_POSITION,
+)
 
 
 class Score(Turtle):

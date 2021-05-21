@@ -85,6 +85,8 @@ class Snake:
         for segment in self.segments[
             1:
         ]:  # slicing to avoid head to touch it self at first iteration, because first segment is the head
+            # if segment == self.head:
+            #     continue
             if self.head.distance(segment) < 10:
                 return True
         return False

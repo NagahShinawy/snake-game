@@ -32,7 +32,7 @@ def play():
         screen.update()
         time.sleep(0.1)
         snake.move()
-        if snake.is_collision_with_food(food=food):   # detect collision with food
+        if snake.is_collision_with_food(food=food):  # detect collision with food
             score.increase_score()
 
         if snake.is_collision_with_wall():  # detect collision with wall
