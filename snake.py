@@ -50,6 +50,25 @@ class Snake:
             return True
         return False
 
+    def is_collision_with_wall(self):
+        is_touch_wall = [
+            self.head.xcor() > 280,
+            self.head.xcor() < -280,
+            self.head.ycor() > 280,
+            self.head.ycor() < -280,
+        ]
+        return any(is_touch_wall)
+
+    def is_collision_with_tail(self):
+        for segment in self.segments[
+            1:
+        ]:  # slicing to avoid head to touch it self at first iteration, because first segment is the head
+            # if segment == self.head:
+            #     continue
+            if self.head.distance(segment) < 10:
+                return True
+        return False
+
     def to_up(self):
         if (
             self.head.heading() != Snake.DOWN
@@ -71,22 +90,3 @@ class Snake:
             self.head.heading() != Snake.RIGHT
         ):  # to prevent move versus current direction
             self.head.setheading(Snake.LEFT)  # to west
-
-    def is_collision_with_wall(self):
-        is_touch_wall = [
-            self.head.xcor() > 280,
-            self.head.xcor() < -280,
-            self.head.ycor() > 280,
-            self.head.ycor() < -280,
-        ]
-        return any(is_touch_wall)
-
-    def is_collision_with_tail(self):
-        for segment in self.segments[
-            1:
-        ]:  # slicing to avoid head to touch it self at first iteration, because first segment is the head
-            # if segment == self.head:
-            #     continue
-            if self.head.distance(segment) < 10:
-                return True
-        return False
