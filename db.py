@@ -3,13 +3,17 @@ created by Nagaj at 09/06/2021
 """
 import os
 
-from constants import DEFAULT_HIGH_SCORE
+from constants import DEFAULT_HIGH_SCORE, SCORE_PATH
 
 
-def create_scores_dir_if_not_exist(path) -> bool:
-    if os.path.isfile(path):
-        return True
-    os.mkdir("data")
+def validate_path(func):
+    def wrapper(path):
+        if not os.path.isfile(path):
+            os.mkdir("data")
+            path = os.path.join(os.getcwd(), SCORE_PATH)
+            update_high_score(path)
+        return func(path)
+    return wrapper
 
 
 def update_high_score(path, score=DEFAULT_HIGH_SCORE):
@@ -17,12 +21,7 @@ def update_high_score(path, score=DEFAULT_HIGH_SCORE):
         f.write(str(score))
 
 
-def _get_high_score(path):
+@validate_path
+def read_high_score(path):
     with open(path, "r") as f:
         return int(f.read())
-
-
-def get_updated_high_score(path):
-    if create_scores_dir_if_not_exist(path) is None:
-        update_high_score(path)
-    return _get_high_score(path)

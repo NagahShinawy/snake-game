@@ -2,7 +2,7 @@
 created by Nagaj at 21/05/2021
 """
 from turtle import Turtle
-from db import get_updated_high_score, update_high_score
+from db import read_high_score, update_high_score
 from constants import (
     CENTER,
     FONT,
@@ -19,8 +19,7 @@ class Score(Turtle):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.score = 0
-        self.high_score = get_updated_high_score(SCORE_PATH)
-        print(self.high_score)
+        self.high_score = read_high_score(SCORE_PATH)
         self.score_info = SCORE_INFO
         self.create_scoreboard()
 
@@ -48,6 +47,5 @@ class Score(Turtle):
         if self.score:
             self.high_score = self.score
             update_high_score(path=SCORE_PATH, score=self.high_score)
-            print("s", self.high_score)
             self.score = 0
         self.update_scoreboard(self.score_info.format(score=self.score, high_score=self.high_score))
