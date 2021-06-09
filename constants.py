@@ -64,3 +64,9 @@ SCORE_INFO = "Score : {score}, High Score: {high_score}"
 GAME_OVER = "GAME OVER"
 
 DEFAULT_POSITION = 0, 0
+
+
+# ######  SAVE TO FILE ####################
+DEFAULT_HIGH_SCORE = "0"
+SCORE_PATH = "scores/scores.txt"
+
