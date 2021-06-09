@@ -22,7 +22,7 @@ class Food(Turtle):
         super().__init__(*args, **kwargs)
         self.create_food()
 
-    def create_food(self):
+    def create_food(self) -> None:
         self.shape(CIRCLE)
         self.shapesize(stretch_len=STRETCH_LEN, stretch_wid=STRETCH_WID)
         self.penup()
@@ -30,7 +30,7 @@ class Food(Turtle):
         self.speed(FASTEST)
         self.move_to_random_point()
 
-    def move_to_random_point(self):
+    def move_to_random_point(self) -> None:
         random_x = random.randint(
             (-WIDTH // 2) + DEFAULT_SIZE, (WIDTH // 2) - DEFAULT_SIZE
         )  # -280 to 280
@@ -39,6 +39,6 @@ class Food(Turtle):
         )  # -280 to 280
         self.goto(random_x, random_y)
 
-    def refresh(self):
+    def refresh(self) -> None:
         self.color(random.choice(COLORS))
         self.move_to_random_point()

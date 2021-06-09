@@ -47,7 +47,7 @@ COLORS = [
     "cyan",
     "dark orange",
     "hot pink",
-    "magenta"
+    "magenta",
 ]
 
 COLLISION_DISTANCE = 15  # [seg1][seg2]    [    head    ]      []
@@ -60,7 +60,7 @@ COLLISION_DISTANCE = 15  # [seg1][seg2]    [    head    ]      []
 CENTER = "center"
 FONT = ("Arial", 13, "bold")
 SCORE_POSITION = 0, 280
-SCORE_INFO = "Score : {}"
+SCORE_INFO = "Score : {score}, High Score: {high_score}"
 GAME_OVER = "GAME OVER"
 
 DEFAULT_POSITION = 0, 0
