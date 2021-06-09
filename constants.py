@@ -68,5 +68,5 @@ DEFAULT_POSITION = 0, 0
 
 # ######  SAVE TO FILE ####################
 DEFAULT_HIGH_SCORE = "0"
-SCORE_PATH = "scores/scores.txt"
+SCORE_PATH = "data/scores.txt"
 

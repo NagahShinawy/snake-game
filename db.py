@@ -9,7 +9,7 @@ from constants import DEFAULT_HIGH_SCORE
 def create_scores_dir_if_not_exist(path) -> bool:
     if os.path.isfile(path):
         return True
-    os.mkdir("scores")
+    os.mkdir("data")
 
 
 def update_high_score(path, score=DEFAULT_HIGH_SCORE):
