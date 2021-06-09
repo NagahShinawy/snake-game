@@ -3,13 +3,13 @@ created by Nagaj at 09/06/2021
 """
 import os
 
-from constants import DEFAULT_HIGH_SCORE, SCORE_PATH
+from constants import DEFAULT_HIGH_SCORE, SCORE_PATH, DATA
 
 
 def validate_path(func):
     def wrapper(path):
         if not os.path.isfile(path):
-            os.mkdir("data")
+            os.mkdir(DATA)
             path = os.path.join(os.getcwd(), SCORE_PATH)
             update_high_score(path)
         return func(path)

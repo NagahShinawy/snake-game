@@ -44,7 +44,7 @@ class Score(Turtle):
         self.update_scoreboard(text=GAME_OVER)
 
     def reset(self) -> None:
-        if self.score:
+        if self.score > self.high_score:
             self.high_score = self.score
             update_high_score(path=SCORE_PATH, score=self.high_score)
             self.score = 0
